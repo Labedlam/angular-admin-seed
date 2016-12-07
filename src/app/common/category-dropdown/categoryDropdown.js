@@ -18,5 +18,11 @@ function CategoryDropDownDirective(){
 
 function CategoryDropDownController(){
     var vm = this;
+
+    vm.categoryTreeClick = function(scope){
+        console.log('scope', scope);
+        scope[scope.category.ID] = !scope[scope.category.ID];
+        //$state.go('productBrowse.products', {categoryid: scope.category.ID});
+    };
 }
 
