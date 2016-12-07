@@ -1,10 +1,8 @@
 <div>
     <nav uib-dropdown>
-        <!--<div class="navbar-header">-->
-            <a class="btn btn-block btn-default" uib-dropdown-toggle role="button">
-                {{breadcrumb[0].Name || "Category Select"}}  <i class="fa fa-angle-down"></i>
-            </a>
-        <!--</div>-->
+        <a class="btn btn-block btn-default" uib-dropdown-toggle role="button">
+            {{breadcrumb[0].Name || "Category Select"}}  <i class="fa fa-angle-down"></i>
+        </a>
         <ul class="nav nav-stacked col-xs-8 col-sm-4" id="accordion1" uib-dropdown-menu>
             <li class="panel" ng-repeat="category in categoryList.Items | filter:{ParentID: null}">
                 <a ng-click="categoryDropdown.categoryTreeClick(this)"
