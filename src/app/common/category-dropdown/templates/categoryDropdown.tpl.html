@@ -1,0 +1,45 @@
+<div>
+    <nav uib-dropdown>
+        <a class="btn btn-block btn-default" uib-dropdown-toggle role="button">
+            {{breadcrumb[0].Name || "Category Select"}}  <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="nav nav-stacked" id="accordion1">
+            <li class="panel" ng-repeat="category in categoryList.Items | filter:{ParentID: null}">
+                <a data-toggle="collapse"
+                   data-parent="#accordion1"
+                   >{{category.Name}} <i class="fa fa-angle-down" ng-if="category.ChildCount"></i></a>
+                <ul id="{{category.ID}}" class="collapse">
+                    <li ng-repeat="category in categoryList.Items| filter:{ParentID: category.ID}">
+                        <a ui-sref="productBrowse.products({categoryid: category.ID})">{{category.Name}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<!--function for expand?-->
+
+
+<!--<div>-->
+    <!--<nav uib-dropdown>-->
+        <!--<a class="btn btn-block btn-default" uib-dropdown-toggle role="button">-->
+            <!--{{breadcrumb[0].Name || "Category Select"}}  <i class="fa fa-angle-down"></i>-->
+        <!--</a>-->
+        <!--<ul class="dropdown-menu col-xs-6" uib-dropdown-menu prevent-click>-->
+            <!--<li class="dropdown-header" ng-repeat="category in categoryList.Items| filter:{ParentID: null}">-->
+                <!--<nav>-->
+                    <!--<a ui-sref="productBrowse.products({categoryid: category.ID})"-->
+                       <!--uib-dropdown uib-dropdown-toggle role="button">-->
+                        <!--{{category.Name}} <i class="fa fa-angle-down" ng-if="category.ChildCount"></i>-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li ng-repeat="category in categoryList.Items| filter:{ParentID: ''}">-->
+                            <!--{{category.Name}}-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</nav>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</nav>-->
+<!--</div>-->
