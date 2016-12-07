@@ -10,8 +10,8 @@
                    data-parent="#accordion1">
                     {{category.Name}} <i class="fa fa-angle-down" ng-if="category.ChildCount"></i></a>
                 <ul id="{{category.ID}}" class="collapse">
-                    <li ng-repeat="category in categoryList.Items| filter:{ParentID: category.ID}">
-                        <a ui-sref="productBrowse.products({categoryid: category.ID})">{{category.Name}}</a>
+                    <li uib-collapse="this[(this.category.ID)]" ng-repeat="childCategory in categoryList.Items| filter:{ParentID: category.ID}">
+                        <a ui-sref="productBrowse.products({categoryid: category.ID})">{{childCategory.Name}}</a>
                     </li>
                 </ul>
             </li>
@@ -20,8 +20,8 @@
 </div>
 
 <!--function for expand?-->
-
-
+<!---->
+<!---->
 <!--<div>-->
     <!--<nav uib-dropdown>-->
         <!--<a class="btn btn-block btn-default" uib-dropdown-toggle role="button">-->
